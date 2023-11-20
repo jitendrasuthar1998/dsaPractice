@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Given Integer</title>
+</head>
+<body>
+Problem Description
+<br/>
+Given a number, return the reverse of that number.
+<br/>
+Input format
+<br/>
+One line of input containing an integer N, the number to be reversed.
+<br/>
+Output format
+<br/>
+Return the reversed number. Note that the number must start with (1-9) digits only unless it is a single digit number.
+<br/>
+Sample Input 1
+<br/>
+15
+<br/>
+<br/>
+Sample Output 1
+<br/>
+51
+<br/>
+Constraints
+<br/>
+0 <= N <= 1000000
+<br/>
+<br/>
+Explanation
+<br/>
+Reverse of 15 is 51.
+
+<br/>
+
+<script>
+    function reverseNum(num){
+        let rev_num = 0;
+
+        while(num > 0){
+         rev_num = rev_num * 10 + num % 10;
+         num = Math.floor(num / 10);   
+        }
+        return rev_num;
+    }
+
+    function reverseNumUsingStringReversal(num){
+        let rev_num = num.toString().split('').reverse().join('');
+        return rev_num;
+    }
+
+
+    function reverseNumUsingStringIteration(num){
+        let numStr = num.toString();
+
+        let reversedStr = "";
+
+        for(let i=numStr.length - 1; i >= 0; i--){
+            reversedStr = reversedStr + numStr[i]
+        }
+
+        return parseInt(reversedStr);
+    }
+
+    document.write("Reverse of 45 is == ", reverseNum(45))
+    document.write("<br/> Reverse of 456 is == ", reverseNum(456))
+    document.write("<br/> Reverse of 456 is == ", reverseNum(10005))
+    
+    document.write("<br/> Reverse of 10000 is == ", reverseNumUsingStringReversal(10000))
+
+    document.write("<br/> Reverse of 10000 is == ", reverseNumUsingStringIteration(10000))
+
+    
+</script>
+</body>
+</html>
