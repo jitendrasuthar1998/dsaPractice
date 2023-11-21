@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Height Checker</title>
+</head>
+
+<body>
+    <script>
+        var heightChecker = function (heights) {
+            // sort given array
+            console.log("heights array is == ", heights);
+            
+            let sortedArray = [...heights];
+            sortedArray.sort((a,b)=> a - b);
+            console.log("sortedArray is == ", sortedArray);
+            let count = 0;
+            for (let i = 0; i < heights.length; i++) {
+
+                if (heights[i] !== sortedArray[i]) {
+                    count++;
+                }
+            }
+
+            return count;
+        };
+
+        console.log(heightChecker([10,6,6,10,10,9,8,8,3,3,8,2,1,5,1,9,5,2,7,4,7,7]))
+        // document.write("<h3>given array is == [2,3,1,5,4]</h3>")
+        // document.write("<br><h3>sorted array is == ", heightChecker([2, 3, 1, 5, 4, 4]))
+    </script>
+</body>
+
+</html>
