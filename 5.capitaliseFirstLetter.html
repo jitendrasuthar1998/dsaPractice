@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capitalise First Letter</title>
+</head>
+
+<body>
+    <h2>Problem Description</h2>
+    <br />
+    Given a paragraph of words, capitalise the first character of each word and return the updated paragraph.
+    <br />
+    Note : No inbuilt function such as split() to be used.
+    <br />
+    <h3>Input format</h3><br />
+    One line of input which contains a string, the paragraph.
+    <br />
+    <h3>Output format</h3><br />
+    Return the paragraph after capitalising each word.
+    <br />
+    <h3>Sample Input 1</h3><br>
+    the quick Brown fox jumps over The lazy dog.
+    <br>
+    <h3>Sample Output 1</h3><br>
+    The Quick Brown Fox Jumps Over The Lazy Dog.
+    <br>
+    <h3>Constraints</h3>
+    Length of paragraph < 100 <br>
+        The paragraph contains spaces, lowercase, uppercase characters and ‘.’.
+
+        <script>
+            function capitaliseFirstLetter(paragraph) {
+                let tempStr = "";
+                let words = [];
+
+                for (let i = 0; i < paragraph.length; i++) {
+                    if (paragraph[i] != " ") {
+                        tempStr = tempStr + paragraph[i]
+                    } else {
+                        words.push(tempStr);
+                        tempStr = ""
+                    }
+                }
+
+                words.push(tempStr)
+
+                // console.log("words array is == ", words)
+                let newStr = "";
+                let newWords = [];
+                for (let i = 0; i < words.length; i++) {
+                    if (words[i] != "") {
+                        for (let j = 0; j < words[i].length; j++) {
+                            if (j == 0) {
+                                newStr = newStr + words[i][j].toUpperCase();
+                            } else {
+                                newStr = newStr + words[i][j].toLowerCase();
+                            }
+
+                        }
+                        newWords.push(newStr);
+                        newStr = "";
+                    }
+                    // console.log("newStr is == ", newStr)
+
+                }
+                // newWords.push(newStr);
+                // console.log("newStr is == ", newStr)
+                // console.log("newWords array is == ", newWords);
+                return newWords.join(" ");
+            }
+
+            console.log("capitalise first letter == ", capitaliseFirstLetter("how are you?"))
+
+            let string = "i    love You JaYA."
+            let string2 = "how are jiTU  bhaii?"
+            console.log("capitalise first letter of == ", capitaliseFirstLetter(string2))
+        </script>
+</body>
+
+</html>
