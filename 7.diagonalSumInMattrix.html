@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagonal Sum in Mattrix</title>
+</head>
+
+<body>
+    <!-- 
+
+        Problem Description
+Given a matrix of dimensions n x n, find the sum of elements along the principal diagonal of the matrix.
+
+Principal diagonal is the diagonal that starts at top left(0,0),(1,1) and goes to the bottom right (n-1,n-1).
+
+Input format
+There are n+1 lines of input.
+
+First line contains integer n.
+
+In the next n lines each line contains n elements.
+
+Output format
+An integer representing the sum of diagonal elements.
+
+Sample Input 1
+4
+
+1 2 3 4
+
+1 2 4 5
+
+2 3 3 4
+
+1 1 2 3
+
+Sample Output 1
+9
+
+Constraints
+1 <= n <= 100
+
+0 <= element of matrix <= 10^5
+     -->
+
+     <script>
+        function diagonalSum(n,matrix){
+            let forwardDiagonalSum = 0;
+
+            for(let i=0;i<n;i++){
+                forwardDiagonalSum+=matrix[i][i];
+            }
+
+            return forwardDiagonalSum;
+        }
+
+        let matrix1 = [[1,2],[3,4]];
+        console.log("diagonal sum is == ", diagonalSum(2,matrix1));
+     </script>
+</body>
+
+</html>
