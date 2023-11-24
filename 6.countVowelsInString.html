@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Vowels in String</title>
+</head>
+
+<body>
+    <script>
+        //       Problem Description
+        // Given a string, count the total number of vowels present in that string.
+
+        // Note: The string contains uppercase and lowercase english alphabets only.
+
+        // Input format
+        // One line of input, which contains the given string.
+
+        // Output format
+        // Print the total number of vowels.
+
+        // Sample Input 1
+        // language
+
+        // Sample Output 1
+        // 4
+
+        // Explanation 1
+        // There are a total of 4 vowels in the string "language" i.e. 'a', 'u', 'a', 'e'.
+
+        // Constraints
+        // 0 < Length of string < 100 
+        
+        function countVowel(str){
+            let vowels = ["a","e","i","o","u"];
+            let count = 0;
+            for(let i=0; i<str.length;i++){
+                if(vowels.includes(str[i].toLowerCase())){
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+        // count consonants
+
+        function countConsonants(str){
+            let vowels = ["a","e","i","o","u"];
+            let count = 0;
+            for(let i=0; i<str.length;i++){
+                // if(vowels.includes(str[i].toLowerCase())){
+                //     count++;
+                // }
+
+                // first check if value at index is a character or not. it should not be space or . or ? or any other symbol.
+
+                // second check if value is a vowel or not.
+
+                if(('a'.charCodeAt(0) <= str[i].charCodeAt(0) &&
+                str[i].charCodeAt(0) <= 'z'.charCodeAt(0) || 'A'.charCodeAt(0) <= str[i].charCodeAt(0) &&
+                str[i].charCodeAt(0) <= 'Z'.charCodeAt(0) ) && !vowels.includes(str[i].toLowerCase())){
+                    count++;
+                }
+            }
+
+            return count;
+        }
+
+
+        let string = "how are you? I am Jitendra Suthar.";
+        console.log("countVowel == ", countVowel(string))
+        console.log("countVowel == ", countConsonants(string))
+        
+    </script>
+</body>
+
+</html>
