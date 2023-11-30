@@ -43,56 +43,57 @@
                         tempStr = ""
                     }
                 }
-
+                
                 words.push(tempStr)
 
-                // console.log("words array is == ", words)
                 let newStr = "";
                 let newWords = [];
+
                 for (let i = 0; i < words.length; i++) {
+                    // check if current index has a word
                     if (words[i] != "") {
+                        // looping through each character of a single word in words array
                         for (let j = 0; j < words[i].length; j++) {
                             if (j == 0) {
-                                newStr = newStr + words[i][j].toUpperCase();
-                            } else {
-                                newStr = newStr + words[i][j].toLowerCase();
-                            }
+                            // checking if character at 0 index of a word is lowercase, then convert it to uppercase and append it to newStr;
+                                if('a'.charCodeAt(0) <= words[i][j].charCodeAt(0) &&
+                                words[i][j].charCodeAt(0) <= 'z'.charCodeAt(0)){
+                                    newStr = newStr + words[i][j].toUpperCase();
+                                }
+                                else{
+                                    // checking if character at 0 index of a word is uppercase, then just append it to newStr;
+                                    newStr = newStr + words[i][j];
+                                }
 
+                            } else {
+                                // checking if character other than 0 index of a word is uppercase, then convert it to lowercase and append it to newStr;
+                                if(!'a'.charCodeAt(0) <= words[i][j].charCodeAt(0) &&
+                                words[i][j].charCodeAt(0) <= 'z'.charCodeAt(0)){
+                                    newStr = newStr + words[i][j].toLowerCase();
+                                }
+                                else{
+                                // checking if character other than 0 index of a word is lowercase, then just append it to newStr;
+                                    newStr = newStr + words[i][j];
+                                }
+                            }
                         }
+                        // push new created string to newWords array
                         newWords.push(newStr);
+                        // empty newStr string
                         newStr = "";
                     }
-                    // console.log("newStr is == ", newStr)
-
                 }
-                // newWords.push(newStr);
-                // console.log("newStr is == ", newStr)
-                // console.log("newWords array is == ", newWords);
+
+                // join each word of newWords array and return it.
                 return newWords.join(" ");
             }
 
-            function updatedCapitaliseFirstLetter(paragraph) {
-                let diff = 'a'.charCodeAt(0) - 'A'.charCodeAt(0)
-                let ans = ''
-                for (let i = 0; i < paragraph.length; i++) {
-                    if (
-                        'a'.charCodeAt(0) <= paragraph[i].charCodeAt(0) &&
-                        paragraph[i].charCodeAt(0) <= 'z'.charCodeAt(0)
-                    ) {
-                        if (i == 0 || (i > 0 && paragraph[i - 1] == ' ')) {
-                            ans += String.fromCharCode(paragraph[i].charCodeAt(0) - diff)
-                        } else ans += paragraph[i]
-                    } else ans += paragraph[i]
-                }
-                return ans
-            }
 
-            console.log("capitalise first letter == ", capitaliseFirstLetter("how are you?"))
+            // console.log("capitalise first letter == ", capitaliseFirstLetter("how are you?"))
 
-            let string = "i    love You JaYA."
-            let string2 = "how are jiTU  bhaii?"
+            let string2 = "how are YOU jiTU bhaii? ThaT'S a great effort."
+            let string3 = "YOU"
             console.log("capitalise first letter of == ", capitaliseFirstLetter(string2))
-            console.log("capitalise first letter of == ", updatedCapitaliseFirstLetter(string2))
         </script>
 </body>
 
