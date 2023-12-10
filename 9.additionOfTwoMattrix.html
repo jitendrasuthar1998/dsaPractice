@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition of two mattrix</title>
+</head>
+<body>
+    <!-- 
+        Problem Description
+Given two matrices of dimension n x m, add the two matrices and print the resultant matrix.
+
+Input format
+There are 2n+1 lines of input.
+
+First line contains two space separated integers n, m.
+
+In the next 2n lines, each line contains m elements. The first n lines are for the first matrix, next n for the second matrix.
+
+Output format
+Print the resultant matrix.
+
+Sample Input 1
+2 2
+
+1 2
+
+3 4
+
+1 1
+
+1 1
+
+Sample Output 1
+2 3
+
+4 5
+
+Constraints
+1 <= n,m <= 100
+
+0 <= element of matrices <= 100000
+     -->
+
+     <script>
+        function additionOfMattrix(matrix1, matrix2){
+            let matrix3 = [];
+
+            for(let i=0; i<matrix1.length; i++){
+                matrix3.push([]);
+            }
+
+            for(let i=0; i<matrix1.length; i++){
+                for(let j=0; j<matrix1.length;j++){
+                    matrix3[i][j] = matrix1[i][j] + matrix2[i][j];
+                }
+            }
+
+            return matrix3;
+        }
+
+        let matrix1 = [[1,2],[3,4]];
+        let matrix2 = [[1,1],[1,1]];
+
+        console.log("addition of two matrices is == ", additionOfMattrix(matrix1,matrix2) )
+     </script>
+</body>
+</html>

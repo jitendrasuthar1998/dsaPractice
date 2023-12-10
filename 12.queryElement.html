@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query An Element</title>
+</head>
+<body>
+    <script>
+        function queryElement(n, arr,x){
+            for(let i=0; i<n; i++){
+                if(arr[i]==x){
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        let arr = [1,2,9,9,10];
+        let n = 5;
+
+        console.log("queryElement is == ", queryElement(5,arr, 9));
+    </script>
+</body>
+</html>
