@@ -56,6 +56,8 @@ function missingPositiveIntegerUsingSet(nums) {
   return nums.length + 1;
 }
 
+// [1,2,3,4,5,6,7,8,9,28,15]
+
 function missingNumber(nums) {
   let numbersSet = new Set(nums);
 
