@@ -24,6 +24,8 @@ function reverseOrderOfWords(s) {
     // if index is not equal to -1 and character at index is not space, then continue
 
     if (i != -1 && s.charAt(i) != ' ') {
+      // console.log("continue")
+      // console.log("i in continue is == ",i)
       continue;
     }
 
@@ -33,15 +35,19 @@ function reverseOrderOfWords(s) {
 
     // run a for loop over all characters from index + 1 till the next space or strings
 
+    // console.log('i is == ',i)
+
     for (let j = i + 1; j < s.length && s.charAt(j) !== ' '; j++) {
       // append the characters in the output resultant
-
+      // console.log('j is == ',j)
+      // console.log('character is == ', s.charAt(j))
       resultantString += s.charAt(j);
+      // console.log("resultantString is == ", resultantString)
       //   increment the count
       count++;
     }
 
-    if (count > 0 && i != -1) {
+    if (count > 0 && i != -1 && s.charAt(i)==" ") {
       resultantString += ' ';
     }
   }
@@ -50,7 +56,7 @@ function reverseOrderOfWords(s) {
   // append a space character
 }
 
-console.log(reverseOrderOfWords('  hello world  '));
+console.log(reverseOrderOfWords('  hello world!  '));
 
 // second type
 
@@ -90,6 +96,11 @@ function reverseOrderOfCharacterInString(str) {
   return resultantString + tempString;
 }
 
+// console.log(
+//     reverseOrderOfCharacterInString('    hello how are YOU       world')
+// );
+
 console.log(
-    reverseOrderOfCharacterInString('    hello how are YOU       world')
+  reverseOrderOfWords('    hello how are YOU       world    ')
 );
+
