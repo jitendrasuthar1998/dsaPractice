@@ -65,27 +65,29 @@ function mergeIntervals(n, intervals) {
   // console.log("intervals",intervals);
 
   // create an array result containing the intervals
+  // dynamic array
   const result = [];
 
   // iterate over the intervals
 
   for (const intveral of intervals) {
-    const last = result.length === 0 ? null : result[result.length - 1];
+    const previous = result.length === 0 ? null : result[result.length - 1];
 
     // if last interval's ending point < current interval's ending point
 
-    if (!last || last[1] < intveral[0]) {
+    if (!previous || previous[1] < intveral[0]) {
       result.push(intveral);
     }
     // add the current interval to the result
     else {
-      last[1] = Math.max(last[1], intveral[1]);
+      previous[1] = Math.max(previous[1], intveral[1]);
     }
     // else update last interval's ending point as the maximum of last or current's interval's ending point
 
     // convert dynamic array into a static array and retun the static array
   }
 
+  // creating fixed size array
   const arr = new Array(result.length);
 
   for (let idx = 0; idx < result.length; idx++) {
@@ -110,4 +112,4 @@ let intervals1 = [
 
 console.log(mergeIntervals(4, intervals));
 
-console.log("second merge intervalue",mergeIntervals(3, intervals1));
+console.log('second merge intervalue', mergeIntervals(3, intervals1));
