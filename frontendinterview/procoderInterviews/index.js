@@ -95,3 +95,22 @@ console.log("book2 after adding genre and published date", book2);
 // deleting existing key
 delete book2.published;
 console.log("book2 after deleting published date", book2);
+
+
+// Primitive and non primitive data types
+
+// pass by value or pass by reference
+
+/*
+One of the fundamental differences of objects versus primitives is that objects are stored and copied “by reference”, whereas primitive values: strings, numbers, booleans, etc – are always copied “as a whole value”.
+*/ 
+
+let message = "Hello";
+let phrase = message;
+
+console.log("message", message);
+console.log("phrase", phrase);
+
+let person = {
+    name: "Jitendra"
+}
