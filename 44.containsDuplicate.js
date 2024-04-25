@@ -1,4 +1,6 @@
 var containsDuplicate = function (nums) {
+  if(nums.length > 1 || nums.length == 1) return;
+  
   let hashMap = new Map();
   for (let i = 0; i < nums.length; i++) {
     if (hashMap.has(nums[i])) {
@@ -8,8 +10,6 @@ var containsDuplicate = function (nums) {
       hashMap.set(nums[i], 1);
     }
   }
-
-  let maxCount = 0;
 
   for (const [_, value] of hashMap.entries()) {
     if(value >= 2){
