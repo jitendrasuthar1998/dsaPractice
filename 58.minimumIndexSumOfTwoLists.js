@@ -41,29 +41,58 @@ There is at least a common string between list1 and list2.
 */
 
 
-var findRestaurant = function(list1, list2) {
-  let smallestSum = null
+var findRestaurant = function (list1, list2) {
+    let n = list1.length;
+    let m = list2.length;
 
-  let n = list1.length;
-  let m = list2.length;
-  for(let i=0; i<n; i++){
-    for(let j=0; j<m;j++){
-        if(list1[i] == list2[j]){
-            if(smallestSum == null){
-                smallestSum = i + j;
-            }else{
-                smallestSum = Math.min(smallestSum, (i+j));
+    let sumObj = {};
+
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < m; j++) {
+            if (list1[i] == list2[j]) {
+                sumObj[list1[i]] = i + j;
             }
         }
     }
-  }
-  return [list1[smallestSum], list2[smallestSum]]
+
+    // console.log("sumObj", sumObj);
+
+    let smallestSum = null;
+
+    let smallestIndexStrings = [];
+
+    for (key in sumObj) {
+
+        if (smallestSum == null) {
+            smallestSum = sumObj[key];
+        }
+        else {
+
+            if (sumObj[key] < smallestSum) {
+                smallestSum = sumObj[key];
+            }
+
+        }
+    }
+
+    // console.log("smallestSum", smallestSum)
+
+    for (key in sumObj) {
+        if (sumObj[key] == smallestSum) {
+            smallestIndexStrings.push(key);
+        }
+    }
+    // console.log("smallestIndexStrings", smallestIndexStrings);
+    return smallestIndexStrings;
 };
 
-// let list1 = ["Shogun","Tapioca Express","Burger King","KFC"];
+let list1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"];
 
-// let list2 = ["Piatti","The Grill at Torrey Pines","Hungry Hunter Steakhouse","Shogun"]
+let list2 = ["Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"]
 
-let list1 = ["happy","sad","good"], list2 = ["sad","happy","good"]
-console.log("findRestaurant", findRestaurant(list1, list2))
+let list3 = ["Shogun", "Piatti", "Tapioca Express", "Burger King", "KFC"]
+
+let list4 = ["Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"];
+let list5 = ["happy", "sad", "good"], list6 = ["sad", "happy", "good"]
+console.log("findRestaurant", findRestaurant(list5, list6))
 
