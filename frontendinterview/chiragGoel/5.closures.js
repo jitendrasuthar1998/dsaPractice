@@ -22,6 +22,25 @@ function Counter(count) {
 
 }
 
+// function Counter(count) {
+//     this.countValue = count;
+
+//     this.displayValue = function () {
+//         console.log(this.countValue);
+//     }
+
+//     this.incrementCounter = function () {
+//         this.countValue += 1;
+//         console.log(this.countValue);
+//     }
+
+//     this.decrementCounter = function () {
+//         this.countValue -= 1;
+//         console.log(this.countValue);
+//     }
+// }
+
+
 let counter1 = Counter(1);
 
 counter1.incrementCounter();

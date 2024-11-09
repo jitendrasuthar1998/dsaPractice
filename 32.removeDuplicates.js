@@ -12,29 +12,30 @@
 // do it without using any space.
 
 function removeDuplicatesFromArray(n, nums) {
-    
+
     let i = 0;
     for (const e of nums) {
-        if (i == 0 || i == 1 || nums[i-2] != e) {
+        console.log("element", e, "nums[i]", nums[i - 2]);
+        if (i == 0 || i == 1 || nums[i - 2] != e) {
             nums[i] = e;
             i++;
         }
     }
-    const object = { newLength: i+1, newArr: nums }
+    const object = { newLength: i + 1, newArr: nums }
     return object;
 }
 
 function removeDuplicatesFromSortedArrayII(n, nums) {
-    let i=0;
-       for(const e of nums){
-           if(i == 0 || i == 1 || nums[i-2]!=e){
-               nums[i]=e;
-               i++;
-           }
-       }
-       const object = {newLength: i, newArr: nums}
-       return object;
-   }
+    let i = 0;
+    for (const e of nums) {
+        if (i == 0 || i == 1 || nums[i - 2] != e) {
+            nums[i] = e;
+            i++;
+        }
+    }
+    const object = { newLength: i, newArr: nums }
+    return object;
+}
 
 let nums = [2, 2, 2, 3, 4, 4, 9]
 

@@ -23,8 +23,6 @@ function factorial(n) {
         result = result * i;
     }
     return result;
-
-
 }
 
 // console.log("factorial of 5 is == ", factorial(5));
@@ -85,3 +83,20 @@ newAdd(3, 4);
 newAdd(3, 2);
 
 newAdd(3, 2);
+
+
+function sum(...args) {
+    console.log("arguments", args);
+
+    let result = 0;
+
+    for (let i = 0; i < args.length; i++) {
+        result += args[i];
+    }
+
+    return result;
+
+
+}
+
+console.log(sum(1, 2, 3, 5, 5, 9, 20));

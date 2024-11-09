@@ -17,17 +17,29 @@ const output = {
 }
 
 function dataTransform(obj) {
-    const output = {};
+    // const output = {};
 
-    obj.forEach(item => {
-        if (output[item.key]) {
-            output[item.key].push(item);
+    // obj.forEach(item => {
+    //     if (output[item.key]) {
+    //         output[item.key].push(item);
+    //     } else {
+    //         output[item.key] = [item]
+    //     }
+    // })
+
+    // return output;
+
+    const result = obj.reduce((prev, current) => {
+        if (prev[current.key]) {
+            prev[current.key].push(current);
         } else {
-            output[item.key] = [item]
+            prev[current.key] = [current];
+            // prev[current.key].push(current);
         }
-    })
-
-    return output;
+        // console.log("prev", prev);
+        return prev;
+    }, {})
+    return result;
 }
 
 console.log("dataTransform", dataTransform(obj));
