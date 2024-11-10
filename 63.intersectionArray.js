@@ -62,7 +62,7 @@ function getIntersectionOfArray(arr1, arr2) {
     return result;
 }
 
-function optmisedApproach(arr1, arr2) {
+function optimizedApproach(arr1, arr2) {
     let arr1Obj = {};
     let n = arr1.length;
     // {"1": 1, "2":2}
@@ -89,6 +89,17 @@ function optmisedApproach(arr1, arr2) {
  * @param {number[]} nums2
  * @return {number[]}
  */
+
+// create the hash map of first array
+
+// then traverse second array, and check if current number of second array is present in the hash map, then push it to the result array
+
+// while pushing that number onto the result array, please check if that number is already present in the result array.
+
+// if that number is already present in the result array, that time don't push it again onto the result array
+
+// handle 0 separately because 0 is not getting pushed into the result array
+
 var intersection = function (nums1, nums2) {
     let n = nums1.length;
     let m = nums2.length;
@@ -130,4 +141,4 @@ var intersection = function (nums1, nums2) {
 let arr1 = [1, 5, 3];
 let arr2 = [2, 3, 4];
 
-console.log("optmisedApproach", optmisedApproach(arr1, arr2));
+console.log("optimizedApproach", optimizedApproach(arr1, arr2));

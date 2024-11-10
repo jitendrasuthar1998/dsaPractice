@@ -3,6 +3,19 @@
 
 let names = "Mahesh Sagar Rohan Rohit Akash";
 
+// i will split the string into words
+// initialize the hash map
+// check the frequency of given character in each word and then set key value pair in the hash map in the form of word => character frequency
+
+// take two variables maxCount  = 0, maxWord = ""
+
+// traverse the hash map 
+// compare value of each entry of the hash map to the maxCount variable
+// if the value is greater than maxCount then assign the value to the maxCount variable
+// also set the key to the maxWord variable
+
+// in this way, traverse the complete hash map
+
 function findWordWithMaxChar(names, char) {
     let words = names.split(" ");
 
