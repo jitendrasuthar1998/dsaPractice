@@ -87,10 +87,27 @@ const nums = [1, 2, 3, 4, 6];
 
 console.log("missing number", missingNumberUsingBinarySearch(nums))
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function isArrayPalindrome(nums) {
     let start = 0;
     let end = nums.length - 1;
     let isPalindrome = false;
+
     while (start <= end) {
         console.log(`nums[${start}] = ${nums[start]}`);
         console.log(`nums[${end}] = ${nums[end]}`);
@@ -106,7 +123,10 @@ function isArrayPalindrome(nums) {
     return isPalindrome;
 }
 
-const palindromicArray = [1, 2, 3, 5, 3, 2, 1];
+const palindromicArray = [1, 2, 3, 3, 2, 1];
+// start index = 0
+// end index = 6
+// nums[start] == nums[end]
 
 console.log("isArrayPalindrome", isArrayPalindrome(palindromicArray))
 
@@ -148,59 +168,3 @@ function twoSumInSorted(nums, target) {
 console.log("twoSumInSorted", twoSumInSorted(numbers1, 9))
 console.log("twoSumInSorted", twoSumInSorted(numbers2, 5))
 
-function giveStringWithoutSpaceAndSpecialCharacters(str) {
-    let newStr = "";
-    let n = str.length;
-    for (let i = 0; i < n; i++) {
-        console.log(str.charAt(i));
-        if (str.charAt(i).match(/\w/g) && !str.charAt(i).includes("_")) {
-            newStr += str.charAt(i).toLowerCase();
-        }
-    }
-
-    return newStr;
-}
-
-// console.log("giveStringWithoutSpaceAndSpecialCharacters", giveStringWithoutSpaceAndSpecialCharacters("Hello world!"));
-
-function isValidPalindrome(str) {
-    let str1 = giveStringWithoutSpaceAndSpecialCharacters(str);
-
-    console.log("str1: " + str1);
-
-    let str2 = reverseString(str1);
-
-    if (str1 == str2) {
-        return true;
-    } else {
-        return false
-    }
-}
-
-function reverseString(str) {
-    let newStr = ""
-    for (let i = str.length - 1; i >= 0; i--) {
-        newStr += str[i];
-    }
-    return newStr;
-}
-
-
-
-function optimisedIsValidPalindrome(s) {
-    const formattedStr = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
-    console.log("formattedStr", formattedStr);
-    let i = 0, j = formattedStr.length - 1;
-
-    while (i < j) {
-        if (formattedStr[i] === formattedStr[j]) {
-            i++;
-            j--;
-        } else {
-            return false
-        }
-    }
-    return true
-}
-
-console.log("isValidPalindrome", optimisedIsValidPalindrome("Hello, world!  How are you?     "));

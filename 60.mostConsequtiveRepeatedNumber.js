@@ -8,7 +8,7 @@ function mostRepeatedElement(nums) {
     let maxCount = 1;
     let currCount = 1;
 
-    for (let i = 0; i < nums.length; i++) {
+    for (let i = 1; i < nums.length; i++) {
         if (currElement == nums[i]) {
             currCount++;
         } else {
