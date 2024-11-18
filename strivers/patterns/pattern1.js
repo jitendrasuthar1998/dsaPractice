@@ -51,13 +51,42 @@ function pattern3(n) {
     }
 }
 
-function pattern4(n) {
+function numberPattern4(n) {
 
 
     for (let i = 1; i <= n; i++) {
         let starString = "";
         for (let j = 1; j <= i; j++) {
+            // console.log("j", j);
             starString += i;
+        }
+        console.log(starString);
+        starString = "";
+    }
+}
+
+function numberPattern5(n) {
+
+
+    for (let i = n; i >= 1; i--) {
+        let starString = "";
+        for (let j = 1; j <= i; j++) {
+            // console.log("j", j);
+            starString += i;
+        }
+        console.log(starString);
+        starString = "";
+    }
+}
+
+function starsPattern1(n) {
+
+
+    for (let i = n; i >= 1; i--) {
+        let starString = "";
+        for (let j = 1; j <= i; j++) {
+            // console.log("j", j);
+            starString += "*";
         }
         console.log(starString);
         starString = "";
@@ -92,14 +121,6 @@ function pattern6(n) {
     }
 }
 
-pattern6(5)
-starsPattern(10);
-
-starsPattern2(5);
-
-pattern4(5);
-
-pattern5(5);
 
 /*
 1
@@ -121,7 +142,7 @@ function numberPattern(n) {
     }
 }
 
-numberPattern(5);
+
 
 /*
 1
@@ -143,8 +164,18 @@ function numberPattern1(n) {
     }
 }
 
-numberPattern(5);
+// numberPattern(5);
+// pattern6(5)
+// starsPattern(10);
 
+// starsPattern2(5);
+
+// numberPattern4(5);
+// numberPattern5(5);
+// starsPattern1(5);
+// pattern5(5);
+
+// numberPattern(5);
 /*
 *****
 ****
@@ -152,3 +183,71 @@ numberPattern(5);
 **
 *
 */
+
+function forwardStars(n) {
+    // let star = "";
+
+    for (let i = 0; i < n; i++) {
+        let star = "";
+
+        for (let j = i; j < n; j++) {
+            star += "*";
+        }
+        console.log(star);
+    }
+}
+
+
+/*
+12345
+1234
+123
+12
+1
+
+*/
+
+function numberPattern6(n) {
+
+
+    for (let i = n; i >= 1; i--) {
+        let starString = "";
+        for (let j = 1; j <= i; j++) {
+            // console.log("j", j);
+            starString += j;
+        }
+        console.log(starString);
+        starString = "";
+    }
+}
+
+// numberPattern6(5);
+
+// forwardStars(5);
+
+/*
+1
+2 3
+4 5 6
+7 8 9 10
+11 12 13 14 15
+*/
+
+function numberPattern7(n) {
+    let count = 0;
+
+    for (let i = 1; i <= n; i++) {
+        let numStr = "";
+        for (let j = 1; j <= i; j++) {
+            count++;
+            if (j == i) {
+                numStr += `${count}`
+            } else {
+                numStr += `${count} `
+            }
+        }
+        console.log(numStr)
+    }
+}
+
+numberPattern7(5);
