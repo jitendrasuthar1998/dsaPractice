@@ -36,34 +36,35 @@ Below is the complete algorithm for doing this:
 3) Return the value stored in second.
 */
 
-function secondLarestElement(nums){
+function secondLarestElement(nums) {
     let first = nums[0];
     let second = null;
     let n = nums.length;
-    
-    for(let i=1; i<n; i++){
-        if(nums[i] > first){
+
+    for (let i = 1; i < n; i++) {
+        if (nums[i] > first) {
             second = first;
             first = nums[i];
         }
 
-        if(first > nums[i] && nums[i] > second){
+        if (first > nums[i] && nums[i] > second) {
             second = nums[i];
         }
     }
 
-    if(first == second){
+    if (first == second) {
         second = null;
     }
 
-    return {first, second};
+    return { first, second };
 }
 
 let nums1 = [12, 35, 1, 10, 34, 1];
-let nums2 = [10,5,10];
-let nums3 = [10,10,10]
-let nums4 = [2,1,2];
+let nums2 = [10, 5, 10];
+let nums3 = [10, 10, 10]
+let nums4 = [2, 1, 2];
 console.log(secondLarestElement(nums1));
 console.log(secondLarestElement(nums2));
 console.log(secondLarestElement(nums3));
 console.log(secondLarestElement(nums4));
+
