@@ -8,20 +8,26 @@
 //     }
 // }
 
-function sum(...argsA){
-    return function(...argsB){
-        console.log("...a",...a);
-        console.log('...b',...b);
-          if(b){
-        let newA = 
-        return sum(a+b)
-      }else{
-        return a;
-      }
-    }
+function sum(...argsA) {
+  // Calculate the initial result from the provided arguments
+  let result = argsA.reduce((a, b) => a + b, 0);
+
+  // Return a function that takes new arguments and continues the chain
+  function curriedSum(...argsB) {
+    if (argsB.length === 0) return result; // If no arguments, return the final result
+    result += argsB.reduce((a, b) => a + b, 0); // Add new arguments to the result
+    return curriedSum; // Return the same function to allow chaining
+  }
+
+  return curriedSum;
 }
 
-sum(1,2,3,4)(5,6,7);
+console.log(sum(1, 2, 3, 4)(5)()); // Output: 15
+console.log(sum(1)(2)(3)(4)(5)()); // Output: 15
+console.log(sum(10, 20)(30, 40)(50)()); // Output: 150
+
+
+console.log('sum', sum(1, 2, 3, 4)(5)());
 
 // let currSum = sum(3)(5);
 
