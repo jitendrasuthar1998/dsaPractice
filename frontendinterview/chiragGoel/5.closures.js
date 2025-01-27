@@ -22,34 +22,45 @@ function Counter(count) {
 
 }
 
-// function Counter(count) {
-//     this.countValue = count;
+class Counter1 {
+    constructor(count) {
+        this.countValue = count;
+    }
 
-//     this.displayValue = function () {
-//         console.log(this.countValue);
-//     }
+    displayValue = function () {
+        console.log(this.countValue);
+    };
 
-//     this.incrementCounter = function () {
-//         this.countValue += 1;
-//         console.log(this.countValue);
-//     }
+    incrementCounter = function () {
+        this.countValue += 1;
+        console.log(this.countValue);
+    };
 
-//     this.decrementCounter = function () {
-//         this.countValue -= 1;
-//         console.log(this.countValue);
-//     }
-// }
+    decrementCounter = function () {
+        this.countValue -= 1;
+        console.log(this.countValue);
+    };
+}
 
 
-let counter1 = Counter(1);
+// let counter1 = Counter(1);
 
+// counter1.incrementCounter();
+// counter1.incrementCounter();
+// counter1.incrementCounter();
+
+// counter1.decrementCounter();
+
+// counter1.decrementCounter();
+
+// let counter2 = Counter(1);
+// counter2.displayValue();
+
+let counter = new Counter1(5);
+counter.incrementCounter();
+let counter1 = new Counter1(1);
 counter1.incrementCounter();
+counter.incrementCounter();
+counter.incrementCounter();
+counter.incrementCounter();
 counter1.incrementCounter();
-counter1.incrementCounter();
-
-counter1.decrementCounter();
-
-counter1.decrementCounter();
-
-let counter2 = Counter(1);
-counter2.displayValue();
