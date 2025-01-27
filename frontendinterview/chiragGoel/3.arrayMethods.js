@@ -2,6 +2,10 @@
 
 const cars = ["Saab", "Volvo", "BMW"];
 
+
+cars.sort((a, b) => a.localeCompare(b));
+
+console.log("cars after sorting", cars);
 // map
 
 function MakeCarsNameCapital() {
@@ -34,13 +38,13 @@ function AddNewCars(car) {
     console.log("added new cars length", newCars);
 }
 
-// MakeCarsNameCapital();
-// PrintCarsName();
-// FilterBMWCar("BMW");
-// console.log("cars after filter", cars);
-// AddNewCars("Jaguar")
-// AddNewCars("Ola");
-// AddNewCars("Uber");
+MakeCarsNameCapital();
+PrintCarsName();
+FilterBMWCar("BMW");
+console.log("cars after filter", cars);
+AddNewCars("Jaguar")
+AddNewCars("Ola");
+AddNewCars("Uber");
 
 
 // pop
@@ -50,11 +54,11 @@ function RemoveCar() {
     console.log("removed car", removedCar);
 }
 
-// RemoveCar();
-// console.log("cars after pop", cars);
+RemoveCar();
+console.log("cars after pop", cars);
 
-// RemoveCar();
-// console.log("cars after pop", cars);
+RemoveCar();
+console.log("cars after pop", cars);
 
 // unshift
 function AddCarToTheFront(car) {
@@ -63,8 +67,8 @@ function AddCarToTheFront(car) {
     console.log("updated cars", cars);
 }
 
-// AddCarToTheFront("Tarzan");
-// AddCarToTheFront("Lamborghini")
+AddCarToTheFront("Tarzan");
+AddCarToTheFront("Lamborghini")
 
 // shift
 
@@ -74,7 +78,7 @@ function RemoveCarFromTheFront() {
     console.log("updated cars", cars);
 }
 
-// RemoveCarFromTheFront();
+RemoveCarFromTheFront();
 
 // join
 
@@ -84,16 +88,16 @@ function JoinCarsName() {
     console.log("updated cars after join", cars);
 }
 
-// JoinCarsName();
+JoinCarsName();
 
 // concat
 
 function JoinCarsArray() {
     let otherCars = ["Ferrari", "TVS", "Honda"];
     let joinedCars = cars.concat(otherCars);
-    console.log("joined car", joinedCars);
-    console.log("cars after joined othersCars into cars", cars);
-    console.log("otherCars after joined othersCars into cars", otherCars);
+    // console.log("joined car", joinedCars);
+    console.log("cars before joined othersCars into cars", cars);
+    console.log("total cars after joined othersCars into cars", joinedCars);
 }
 
 // JoinCarsArray();
@@ -106,7 +110,7 @@ function GiveCarsNames(start, end) {
     console.log("cars array after given car", cars);
 }
 
-// GiveCarsNames(3, 5)
+GiveCarsNames(3, 5)
 
 // splice
 
@@ -116,7 +120,7 @@ function SpliceCars(start, count, newCar) {
     console.log("cars array after splice", cars);
 }
 
-// SpliceCars(0, 2, "Harmor");
+SpliceCars(0, 2, "Harmor");
 
 
 // reduce
@@ -126,8 +130,8 @@ const numbers = [1, 2, 3, 4, 5, 6, 7];
 const result = numbers.reduce((prev, curr, currentIndex, array) => {
     console.log("prev element", prev);
     console.log("curr element", curr);
-    console.log("current index", currentIndex);
-    console.log("array", array);
+    // console.log("current index", currentIndex);
+    // console.log("array", array);
     return prev + curr;
 })
 
@@ -140,11 +144,15 @@ const materials = [
     { name: "Rust", cost: 5400 },
 ]
 
-const totalCost = materials.reduce((prev, curr) => {
+const totalPrice = materials.reduce((prev, curr) => {
     return prev + curr.cost
-}, 0)
+}, 0);
 
-console.log("totalCost", totalCost);
+// const totalCost = materials.reduce((prev, curr) => {
+//     return prev + curr.cost
+// }, 0)
+
+// console.log("totalCost", totalCost);
 
 const keyValuePairs = [
     ["username", "decode"], ["memberSince", "2020-04-03"], ["age", 25]
