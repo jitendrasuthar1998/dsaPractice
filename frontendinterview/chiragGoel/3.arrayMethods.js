@@ -167,3 +167,32 @@ const obj = keyValuePairs.reduce((prev, keyValuePair) => {
 }, {})
 
 console.log("obj", obj);
+
+const employees = [{ name: "Alice", department: "IT", salary: 70000 },
+{ name: "Bob", department: "HR", salary: 50000 },
+{ name: "Charlie", department: "IT", salary: 80000 },
+{ name: "David", department: "Finance", salary: 60000 },
+{ name: "Eve", department: "HR", salary: 55000 },
+{ name: "Frank", department: "Finance", salary: 75000 },
+]
+
+const employeesObj = {};
+
+for (let i = 0; i < employees.length; i++) {
+    let department = employees[i].department
+    if (employeesObj[department] && employeesObj[department].salary < employees[i].salary) {
+        employeesObj[department] = employees[i]
+    } else {
+        employeesObj[department] = employees[i];
+    }
+}
+
+console.log("employee obj", employeesObj);
+
+const employeeArray = [];
+
+for (const values of Object.values(employeesObj)) {
+    employeeArray.push(values)
+}
+
+console.log("employee array", employeeArray);

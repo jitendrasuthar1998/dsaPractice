@@ -16,33 +16,49 @@ const output = {
     "Sample 3": [{ key: "Sample 3", data: 'Data 3' }, { key: "Sample 3", data: 'Data 3' }]
 }
 
-function dataTransform(obj) {
-    // const output = {};
+function newDataTransform(obj) {
 
-    // obj.forEach(item => {
-    //     if (output[item.key]) {
-    //         output[item.key].push(item);
-    //     } else {
-    //         output[item.key] = [item]
-    //     }
-    // })
-
-    // return output;
-
-    const result = obj.reduce((prev, current) => {
-        if (prev[current.key]) {
-            prev[current.key].push(current);
+    const result = obj.reduce((prev, curr) => {
+        if (prev[curr.key]) {
+            prev[curr.key].push(curr);
         } else {
-            prev[current.key] = [current];
-            // prev[current.key].push(current);
+            prev[curr.key] = [curr];
         }
-        // console.log("prev", prev);
         return prev;
     }, {})
+
     return result;
 }
 
-console.log("dataTransform", dataTransform(obj));
+console.log(newDataTransform(obj));
+
+// function dataTransform(obj) {
+//     // const output = {};
+
+//     // obj.forEach(item => {
+//     //     if (output[item.key]) {
+//     //         output[item.key].push(item);
+//     //     } else {
+//     //         output[item.key] = [item]
+//     //     }
+//     // })
+
+//     // return output;
+
+//     const result = obj.reduce((prev, current) => {
+//         if (prev[current.key]) {
+//             prev[current.key].push(current);
+//         } else {
+//             prev[current.key] = [current];
+//             // prev[current.key].push(current);
+//         }
+//         // console.log("prev", prev);
+//         return prev;
+//     }, {})
+//     return result;
+// }
+
+// console.log("dataTransform", dataTransform(obj));
 
 
 

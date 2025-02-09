@@ -1,7 +1,7 @@
 // {
 //     let a = 1;
 //     let b = 2;
-//     var c = 3;
+//     var c = 13;
 //     console.log(a);
 //     console.log(b);
 // }
@@ -25,18 +25,18 @@ console.log(b);
 
 */
 
-/* 
 
-var x = 10;
 
-function foo(){
-    console.log(x);
-    // var x = 10;
-}
+// var x = 10;
 
-foo();
+// function foo() {
+//     console.log(x);
+//     var x = 100;
+//     console.log(x);
+// }
 
-*/
+// foo();
+
 
 // foo();
 
@@ -118,6 +118,16 @@ console.log("End");
 
 */
 
+// function printNumbersTimeInterval() {
+//     for (let i = 0; i < 10; i++) {
+//         setTimeout(() => {
+//             console.log(i);
+//         }, i * 1000)
+//     }
+// }
+
+// printNumbersTimeInterval();
+
 /*setTimeout with loop 
 
 for(var i=1;i<=3;i++){
@@ -140,23 +150,111 @@ for(var i=1;i<=3;i++){
 /* setTimeout with Promise  
 
 setTimeout(()=> {
-    console.log("Timeout");
+    console.log("Timeout"); // Macrotask
 },0);
 
 Promise.resolve().then(()=> console.log("Promise"));
+Microtask
 console.log("End");
+
+End
+Promise
+Timeout
 
 */
 
-/*
-async function foo(){
+
+async function foo() {
     return "Hello world!";
 }
 
-const result = foo();
-result.then((res)=> console.log(res));
+// async function add(a, b) {
+//     return a + b;
+// }
 
-*/ 
+// add(1, 2).then((res) => console.log(res));
+
+// console.log(result);
+
+// const result = foo();
+// result.then((res)=> console.log(res));
+
+const person = { name: "John", age: 22, email: "john@example.com" };
+
+person.email = "john@gmail.com";
+
+const { name: personName, age: personAge, email } = person;
+
+console.log("name", personName);
+console.log("age", personAge);
+
+// const person1 = person;
+// person1.name = "Jack";
+
+// const person2 = { ...person };
+// person2.name = "Person 2";
+// console.log("person 2 name", person2.name);
+
+// const { name: personName1, age: personAge1, email1 } = person;
+
+// delete person2.email;
+// console.log("person 2", JSON.stringify(person2));
+// console.log("person 1 name", personName1);
+
+const address = {
+    city: "Jodhpur",
+    pinCode: 24444,
+}
+
+person.address = address;
+
+console.log("person", JSON.stringify(person));
+
+const person2 = JSON.parse(JSON.stringify(person));
+
+Object.seal(person2); // read only and not extensible
+person2.name = "Jack Sparrow"
+person2.address.city = "Jaipur"
+
+// person2.gender = "Male"
+
+// Object.seal(person2); // can't add new properties to an object but can change the values of the properties
+
+// person2.name = "Jack Sparrow"
+// person2.address.city = "Jaipur"
+// console.log("person2", person2);
+
+
+
+console.log("person2 keys", Object.keys(person2));
+
+console.log("entries", Object.entries(person2));
+
+for (const [key, value] of Object.entries(person2)) {
+    console.log("key", key);
+    console.log("value", value);
+}
+
+const person3 = Object.assign({}, person)
+person3.name = "Person 3"
+console.log("person", person);
+console.log("person3", person3);
+
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(1)
+    }, 1000);
+})
+
+const giveDataWithPromise = (a, b) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(a + b), 1000);
+    })
+}
+
+// giveDataWithPromise(1, 2).then((res) => console.log("1+2", res));
+
+// promise.then((res) => console.log("resolved", res));
 
 // function Person(name, age, email){
 //     this.name = name;
@@ -188,14 +286,14 @@ result.then((res)=> console.log(res));
 const promise1 = new Promise((resolve, reject) => {
     const num = 0.6;
 
-    if(num >= 0.5){
+    if (num >= 0.5) {
         resolve("Promise is fullfilled");
-    }else{
+    } else {
         reject("Promise is failed")
     }
 });
 
-const Random = async() => {
+const Random = async () => {
     try {
         const message = await promise1;
         console.log("message", message);
@@ -207,7 +305,7 @@ const Random = async() => {
 // Random();
 
 
-const getUserDetails = async() => {
+const getUserDetails = async () => {
     let githubResponse = await fetch(`https://api.github.com/users/jitendrasuthar1998`);
     let githubUser = await githubResponse.json();
     return githubUser;
@@ -221,51 +319,52 @@ const getUserDetails = async() => {
 
 // Objects
 
-const person1 = {
-    name: "John", age: 20
-}
+// const person1 = {
+//     name: "John", age: 20
+// }
 
-person1.city = "Jodhpur";
-person1.area = "Kamla Nehru Nagar";
+// person1.city = "Jodhpur";
+// person1.area = "Kamla Nehru Nagar";
 
-const {name, age, city, area} = person1
+// const { name, age, city, area } = person1
 
-person1.age;
-console.log(person1["name"],person1["city"])
+// person1.age;
+// // console.log(person1["name"],person1["city"])
 
-const person2 = new Object();
-person2.name = "Mayank";
-person2.age = 26; 
+// const person2 = new Object();
+// person2.name = "Mayank";
+// person2.age = 26;
 
-function Person(firstName, lastName,age, city, area){
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.getFullName = function(){
-        return this.firstName + " " + this.lastName;
-    }
-    this.age = age;
-    this.city = city;
-    this.area = area;
-}
+// function Person(firstName, lastName, age, city, area) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.getFullName = function () {
+//         return this.firstName + " " + this.lastName;
+//     }
+//     this.age = age;
+//     this.city = city;
+//     this.area = area;
+// }
 
-const per1 = new Person("Jitendra", "Suthar",25, "Jodhpur", "Kudi");
+// const per1 = new Person("Jitendra", "Suthar", 25, "Jodhpur", "Kudi");
 
-console.log(per1.getFullName())
+// // console.log(per1.getFullName())
 
-// get all keys of an objectz
+// // get all keys of an objectz
 
-const per1AllKeys = Object.keys(per1);
-console.log("per1AllKeys",per1AllKeys);
+// const per1AllKeys = Object.keys(per1);
+// // console.log("per1AllKeys",per1AllKeys);
 
-console.log("is per1 have area key == ", "firstName" in per1)
+// // console.log("is per1 have area key == ", "firstName" in per1)
 
 
-// Object.freeze(per1);
+// // Object.freeze(per1);
 
-per1.area = "Kamla Nehru Nagar"
 
-console.log(per1)
+// per1.area = "Kamla Nehru Nagar"
 
-for(const property in per1){
-    console.log("key", property, "value", per1[property])
-}
+// console.log(per1)
+
+// for (const property in per1) {
+//     console.log("key", property, "value", per1[property])
+// }
