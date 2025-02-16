@@ -196,3 +196,9 @@ for (const values of Object.values(employeesObj)) {
 }
 
 console.log("employee array", employeeArray);
+
+let digits = []
+
+digits[4] = 4;
+console.log("digits", digits)
+digits.forEach(digit => console.log("digit", digit))
